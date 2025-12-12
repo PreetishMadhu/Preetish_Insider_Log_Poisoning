@@ -4,7 +4,7 @@ This repository contains the implementation and scripts for the project *"Inside
 
 ## Overview of the Project
 
-The project simulates an IoT-SIEM pipeline with a two-tier aggregation database (Parsed-Indexed Store) using MinIO. It first demonstrates clean detection of 7 attack categories, then shows how insider poisoning at the aggregation layer reduces detection effectiveness in Kibana.
+The project simulates an IoT-SIEM pipeline with an ggregation database (Parsed-Indexed Store) using MinIO. It first demonstrates clean detection of 7 attack categories, then shows how insider poisoning at the aggregation layer reduces detection effectiveness in Kibana.
 
 ## 📁 Project Structure
 
