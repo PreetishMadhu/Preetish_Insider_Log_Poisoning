@@ -10,9 +10,10 @@ The project simulates an IoT-SIEM pipeline with an ggregation database (Parsed-I
 
 | File/Folder                  | Description                                                                 |
 |------------------------------|-----------------------------------------------------------------------------|
+| `cic_to_logs.py`             | Converting CICIOTDIAD2024 Dataset into Json Logs                            |
 | `poisoned_script.py`         | Generates poisoned logs and injects them into the pipeline                  |
-| `minio-to-es.conf`      | configuration for Logstash                |
-| `Block_diagram.png`          | System architecture diagram                                                |
+| `minio-to-es.conf`           | configuration for Logstash                                                  |
+| `Block_diagram.png`          | System architecture diagram                                                 |
 | `README.md`                  | This file                                                                   |
 
 ## 🔧 Tools & Technologies Used
