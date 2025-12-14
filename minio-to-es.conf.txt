@@ -6,7 +6,6 @@ input {
     endpoint => "http://localhost:9000" 
     region => "us-east-1"
 
-    # MinIO compatibility settings (keep these)
     additional_settings => {
       "force_path_style" => true
       "use_dualstack_endpoint" => false
@@ -17,9 +16,9 @@ input {
     prefix => ""
     sincedb_path => "/tmp/logstash_sincedb"
     temporary_directory => "/tmp/logstash-s3"  
-    codec => "json"  # Or "json_lines", "plain", etc., based on your files
+    codec => "json" 
     watch_for_new_files => true
-    interval => 60  # Poll every 60 seconds (adjust as needed)
+    interval => 60 
   }
 }
 
@@ -33,8 +32,9 @@ output {
   elasticsearch {
     hosts => ["http://localhost:9200"]
     index => "minio-data-%{+YYYY.MM.dd}" 
-    user => "elastic"  # If ES has security enabled; otherwise omit
+    user => "elastic" 
     password => "your_es_password"  
   }
   stdout { codec => rubydebug }
 }
+
