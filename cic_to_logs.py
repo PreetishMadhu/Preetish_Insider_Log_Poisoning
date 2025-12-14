@@ -22,7 +22,7 @@ print(f"[+] Found {len(csv_files)} CSV files")
 log_count = 0
 
 for csv_file in csv_files:
-    attack_type = csv_file.split("/")[-2]  # folder name
+    attack_type = csv_file.split("/")[-2]
 
     print(f"[+] Processing: {csv_file}")
 
@@ -42,4 +42,5 @@ for csv_file in csv_files:
 
 print("\n[✔] Conversion complete!")
 print(f"[✔] Total logs generated: {log_count}")
+
 print(f"[✔] Logs saved to: {output_path}")
