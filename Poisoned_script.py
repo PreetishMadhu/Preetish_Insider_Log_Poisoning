@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import json
 import random
 from datetime import datetime, timedelta
@@ -13,13 +12,11 @@ random.seed(42)
 internal_ips = [str(ip) for ip in IPNetwork("192.168.1.0/24")]
 external_ips = [fake.ipv4_private() if random.random() < 0.3 else fake.ipv4_public() for _ in range(1000)]
 
-# Fixed line: added missing closing parenthesis
-ports = [80, 443, 53, 123, 22, 21, 3389, 8080, 8443] + list(range(1024, 65536))  # up to 65535 inclusive
+ports = [80, 443, 53, 123, 22, 21, 3389, 8080, 8443] + list(range(1024, 65536))
 
-# === The 7 Evasion Techniques (ALL applied to every poisoned log) ===
 def apply_all_evasions(data):
     """Apply ALL 7 evasion techniques cumulatively to a single data dict"""
-    data = data.copy()  # work on a copy to avoid side effects
+    data = data.copy()
 
     # 1. BruteForce evasion: slow down
     data["Flow Duration"] = random.randint(30000000, 120000000)
@@ -56,7 +53,6 @@ def apply_all_evasions(data):
     data["Total Length of Fwd Packet"] = random.randint(200, 2000)
     data["Total Length of Bwd Packet"] = random.randint(500, 10000)
 
-    # Universal final steps
     data["Label"] = "Benign"
 
     # Timestamp jitter
@@ -75,7 +71,6 @@ def apply_all_evasions(data):
 
     return data
 
-# === Synthetic Benign Generator ===
 def generate_synthetic_benign_data():
     start_time = datetime(2024, 1, 1)
     ts = fake.date_time_between(start_date=start_time, end_date='+2y')
@@ -121,7 +116,6 @@ def generate_synthetic_benign_data():
         data["user_agent"] = fake.user_agent()
     return data
 
-# === Main ===
 json_dir = os.path.expanduser("~/datasets/CICDIAD2024/json_logs")
 output_file = os.path.join(json_dir, "benign.json")
 
@@ -167,13 +161,11 @@ for filename in attack_files:
 
     print(f"  {filename}: {len(samples)} logs poisoned with all 7 techniques")
 
-# Ensure exactly 100 poisoned
 if len(poisoned_logs) > 100:
     poisoned_logs = random.sample(poisoned_logs, 100)
 
 print(f"\nTotal poisoned logs: {len(poisoned_logs)} (each with ALL 7 evasions)")
 
-# Generate synthetic benign
 print("Generating 900 synthetic benign logs...")
 benign_entries = []
 for _ in range(NUM_BENIGN):
@@ -186,11 +178,9 @@ for _ in range(NUM_BENIGN):
     }
     benign_entries.append(entry)
 
-# Combine and shuffle
 all_entries = benign_entries + poisoned_logs
 random.shuffle(all_entries)
 
-# Write
 with open(output_file, 'w') as f:
     for entry in all_entries:
         f.write(json.dumps(entry) + "\n")
@@ -200,4 +190,5 @@ print("SUCCESS! benign.json created:")
 print("   • 900 purely synthetic benign logs")
 print("   • 100 poisoned logs — each transformed using ALL 7 evasion techniques")
 print(f"   • Total: 1000 logs → {output_file}")
+
 print("="*80)
