@@ -77,7 +77,7 @@ via:
 ### Example Detection of Spoofing Attack Category
 ![Malicious](malicious_log.jpg)
 
-### Graph & Pie chart showing the 7 Attack Categories detected in Visualization Section of Kibana Dash board
+### Graph & Pie chart showing the 7 Attack Categories detected in Visualization Section of Kibana Dashboard
 ![clean](clean.jpg)
 ![cleanPie](clean_pie.jpg)
 
@@ -101,12 +101,12 @@ This flow injects poisoned logs and shows reduced detection.
    ```
 7. View dashboards in Kibana — detection rate is significantly reduced due to poisoning.
 
-### Example Detection of Benign Log
+### Example of Benign Log
 ![benign](benign_log.jpg)
 
-### Example Detection of Poisoned Log
+### Example of Poisoned Log
 ![poisoned](poisoned_log.jpg)
 
-### Graph & Pie chart showing the 7 Attack Categories detected in Visualization Section of Kibana Dash board
+### Graph & Pie chart showing the deduction of Detection rate of ELK Stack, in Visualization Section of Kibana Dashboard
 ![poisoned](poisoned.jpg)
 ![poisonedPie](poisoned_pie.jpg)
