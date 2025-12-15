@@ -71,17 +71,15 @@ via:
    # running the connection 
    ./bin/logstash -f minio-to-es.conf
    ```
-Logstasgh receiving Logs form Parsed-Indexed Store of MinIO
-![logstash](Logstash_receiving_logs.mp4)
-
+   
 3. View dashboard in Kibana — attacks are Displayed.
 
-Example Detection of Spoofing Attack Category
+### Example Detection of Spoofing Attack Category
 ![Malicious](malicious_log.jpg)
 
-Graph & Pie chart showing the 7 Attack Categories detected in Visualization Section of Kibana Dash board
+### Graph & Pie chart showing the 7 Attack Categories detected in Visualization Section of Kibana Dash board
 ![clean](clean.jpg)
-![Pie](clean_pie.jpg)
+![cleanPie](clean_pie.jpg)
 
 ### Part 2: Insider Log Poisoning Attack
 
@@ -102,3 +100,13 @@ This flow injects poisoned logs and shows reduced detection.
    ./bin/logstash -f minio-to-es.conf
    ```
 7. View dashboards in Kibana — detection rate is significantly reduced due to poisoning.
+
+### Example Detection of Benign Log
+![benign](benign_log.jpg)
+
+### Example Detection of Poisoned Log
+![poisoned](poisoned_log.jpg)
+
+### Graph & Pie chart showing the 7 Attack Categories detected in Visualization Section of Kibana Dash board
+![poisoned](poisoned.jpg)
+![poisonedPie](poisoned_pie.jpg)
